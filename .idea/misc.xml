@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/MidProjectHarryPotter/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
-        <entry key="..\:/MidProjectHarryPotter/app/src/main/res/layout/fragment_home.xml" value="0.19010416666666666" />
+        <entry key="..\:/MidProjectHarryPotter/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/MidProjectHarryPotter/app/src/main/res/layout/item_home.xml" value="0.15806159420289856" />
       </map>
     </option>
   </component>
