@@ -11,7 +11,7 @@ import com.example.midprojectharrypotter.R
 import kotlinx.android.synthetic.main.item_home.view.*
 
 class HomeAdapter (private val listKarakter : ArrayList<DataKarakter>):RecyclerView.Adapter<HomeAdapter.HomeHolder>(){
-    inner class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class HomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         fun bind(dataKarakter : DataKarakter){
             with(itemView){
                 nametv.text = dataKarakter.name

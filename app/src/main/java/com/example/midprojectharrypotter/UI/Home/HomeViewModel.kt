@@ -11,38 +11,39 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class HomeViewModel : ViewModel (){
+class HomeViewModel : ViewModel () {
 
-    init{
+    init {
         Log.d("HomeViewModel", "Created")
     }
 
-    var listKarakter = ArrayList<DataKarakter>()
+    private val listKarakter = ArrayList<DataKarakter>()
 
 
-    fun getDataFromApi(recyclerView: RecyclerView){
-        RetrofitClient.instance.getDataKarakter().enqueue(object : Callback<ArrayList<DataKarakter>>{
-            override fun onResponse(
-                call: Call<ArrayList<DataKarakter>>,
-                response: Response<ArrayList<DataKarakter>>
-            ) {
-                response.body()?.let {
-                    listKarakter.addAll(it)
-                    Log.d("HomeViewModel", "$it")}
+    fun getDataFromApi(recyclerView: RecyclerView) {
+        RetrofitClient.instance.getDataKarakter().enqueue(object : Callback<ArrayList<DataKarakter>> {
+                override fun onResponse(call: Call<ArrayList<DataKarakter>>, response: Response<ArrayList<DataKarakter>>) {
+                    Log.d("HomeViewModel", "Request")
+                    if (response.isSuccessful) {
 
-                val adapter = HomeAdapter(listKarakter)
-                recyclerView.adapter = adapter
-            }
+                        //val data = response.body()
+                        recyclerView.adapter
+                        response.body()?.let { listKarakter.addAll(it)
+                            Log.d("HomeViewModel", "$it")
+                        }
 
-            override fun onFailure(call: Call<ArrayList<DataKarakter>>, t: Throwable) {
-            }
-        })
+                        val adapter = HomeAdapter(listKarakter)
+                        recyclerView.adapter = adapter
+                        Log.d("HomeViewModel", "Init recycler view")
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<DataKarakter>>, t: Throwable) {
+                    Log.d("HomeViewModel", "HomeViewModel fun api Onfailure")
+
+                }
+            })
 
 
     }
-
-
-
-
-
 }
